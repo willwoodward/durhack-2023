@@ -22,7 +22,7 @@ body {
 }
 
 #main_div{
-  text-align: center;
+  margin-left: 10px;
   
 }
 
@@ -44,9 +44,7 @@ body {
 #summarise{
   border-radius: 10em;
   border-color: white;
-  background-color: #009492;
-  border: none;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
+  background-color: white;
+  border: 1px black solid;
+  padding: 2em;
 }
