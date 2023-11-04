@@ -61,7 +61,7 @@ summaryButton.addEventListener('click', async () => {
         )
     });
     const queryData = await query.json();
-    console.log(queryData);
+    document.getElementById("output").innerHTML = JSON.stringify(queryData.output);
 })
 
 // if (path.length > 10) {
