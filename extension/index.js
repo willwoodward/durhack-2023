@@ -1,13 +1,10 @@
 const summaryButton = document.getElementById('summarise');
 
-summaryButton.addEventListener('click', () => {
-    let path;
-
-    chrome.tabs.getSelected(null,function(tab) {
-        console.log(tab.url);
-    });
-
-    alert(path)
+summaryButton.addEventListener('click', async () => {
+    let queryOptions = { active: true, lastFocusedWindow: true };
+    // `tab` will either be a `tabs.Tab` instance or `undefined`.
+    let [tab] = await chrome.tabs.query(queryOptions);
+    console.log(tab.url);
 })
 
 // if (path.length > 10) {
