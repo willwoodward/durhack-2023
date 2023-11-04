@@ -4,7 +4,7 @@
   "description": "Enable focus mode on Chrome's official Extensions and Chrome Web Store documentation.",
   "version": "1.0",
   "action": {
-    "default_popup": "index.html",
+    "default_popup": "hello.html",
     "default_icon": "hello_extensions.png"
   }
 }
