@@ -1,12 +1,23 @@
 body {
+  height: 300px;
   width:300px;
   margin: 0;
   background-image: url("images/blob-scene-haikei.svg");
-  background-size: 300px;
+  background-size: 450px;
   background-repeat: no-repeat;
   background-position: center;
 
 }
 #heading1{
+  padding-top: 10px;
   text-align: center;
+}
+
+#main_div{
+  margin: 10px;
+  
+}
+
+#text_input{
+  width: 280px;
 }
