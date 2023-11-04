@@ -1,5 +1,6 @@
 body {
   min-width:300px;
+  background-image: url("images/blob-scene-haikei.svg");
 }
 #heading1{
   text-align: center;
