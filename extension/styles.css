@@ -42,11 +42,35 @@ body {
 }
 
 #summarise{
-  border-radius: 10em;
+  position: relative;
   border-color: white;
-  background-color: #009492;
   border: none;
   width: 100px;
   height: 100px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  user-select: none;
+}
+#summarise:hover::after{
+  width: 110px;
+  height: 110px;
+}
+#summarise::after{
+  content: "";
+  position: absolute;
+  background-color: #009492;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  z-index: -1;
+  border-radius: 10em;
+  transition: width 400ms, height 600ms;
+}
+#summarise.clicked::after{
+  z-index: 99;
+  width: 900px;
+  height: 900px;
 }

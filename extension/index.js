@@ -1,6 +1,8 @@
 const summaryButton = document.getElementById('summarise');
 
-summaryButton.addEventListener('click', async () => {
+summaryButton.addEventListener('click', async function() {
+    this.classList.add("clicked");
+        
     // let queryOptions = { active: true, lastFocusedWindow: true };
     // // `tab` will either be a `tabs.Tab` instance or `undefined`.
     // let [tab] = await chrome.tabs.query(queryOptions);
@@ -47,6 +49,7 @@ summaryButton.addEventListener('click', async () => {
     // });
 
     // Query Knowledge base
+    return
     const query = await fetch(`https://general-runtime.voiceflow.com/knowledge-base/query`, {
         method: "POST",
         headers: {
