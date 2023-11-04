@@ -1,8 +1,17 @@
 const summaryButton = document.getElementById('summarise');
+const summariseAgainButton = document.getElementById('summarise_again');
+const afterClick = document.getElementById("after_click");
 
-summaryButton.addEventListener('click', async function() {
-    this.classList.add("clicked");
-        
+summariseAgainButton.addEventListener('click', async function () {
+    summaryButton.classList.remove("clicked");
+    afterClick.classList.remove("clicked")
+});
+
+summaryButton.addEventListener('click', async function () {
+    summaryButton.classList.add("clicked");
+    afterClick.classList.add("clicked");
+
+
     // let queryOptions = { active: true, lastFocusedWindow: true };
     // // `tab` will either be a `tabs.Tab` instance or `undefined`.
     // let [tab] = await chrome.tabs.query(queryOptions);
@@ -53,7 +62,7 @@ summaryButton.addEventListener('click', async function() {
     const query = await fetch(`https://general-runtime.voiceflow.com/knowledge-base/query`, {
         method: "POST",
         headers: {
-            "Authorization" : "VF.DM.65466ed244035a0007581665.6rYrKeWuVw9jOp3a",
+            "Authorization": "VF.DM.65466ed244035a0007581665.6rYrKeWuVw9jOp3a",
             "Content-Type": "application/json",
         },
         body: JSON.stringify(
@@ -76,7 +85,7 @@ submit.addEventListener('click', async () => {
     const query = await fetch(`https://general-runtime.voiceflow.com/knowledge-base/query`, {
         method: "POST",
         headers: {
-            "Authorization" : "VF.DM.65466ed244035a0007581665.6rYrKeWuVw9jOp3a",
+            "Authorization": "VF.DM.65466ed244035a0007581665.6rYrKeWuVw9jOp3a",
             "Content-Type": "application/json",
         },
         body: JSON.stringify(
