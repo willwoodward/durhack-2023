@@ -64,6 +64,33 @@ summaryButton.addEventListener('click', async () => {
     document.getElementById("output").innerHTML = JSON.stringify(queryData.output);
 })
 
+const submit = document.getElementById('submit');
+const input = document.getElementById('text_input');
+
+submit.addEventListener('click', async () => {
+    const question = input.value;
+    input.value = "";
+    const query = await fetch(`https://general-runtime.voiceflow.com/knowledge-base/query`, {
+        method: "POST",
+        headers: {
+            "Authorization" : "VF.DM.65466ed244035a0007581665.6rYrKeWuVw9jOp3a",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            {
+                "question": question,
+                "chunkLimit": 2
+            }
+        )
+    });
+    const queryData = await query.json();
+    document.getElementById("output").innerHTML = JSON.stringify(queryData.output);
+})
+
+
+
+
+
 // if (path.length > 10) {
 // 	if (path.slice(1,8) == 'chatbot') {
 // 		p_id = path.slice(9);
