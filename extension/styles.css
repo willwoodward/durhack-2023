@@ -123,3 +123,8 @@ html{
 #after_click.clicked {
   display: block;
 }
+
+#steven_bradley {
+  margin: 1em auto;
+  display: block;
+}

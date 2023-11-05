@@ -2,6 +2,8 @@ const summaryButton = document.getElementById('summarise');
 const summariseAgainButton = document.getElementById('summarise_again');
 const afterClick = document.getElementById("after_click");
 const outputP = document.getElementById("output");
+const traderMode = document.getElementById("trader_mode");
+const stevenBradley = document.getElementById("steven_bradley");
 
 summariseAgainButton.addEventListener('click', async function () {
     summaryButton.classList.remove("clicked");
@@ -13,7 +15,12 @@ summaryButton.addEventListener('click', async function () {
     summaryButton.classList.add("clicked");
     afterClick.classList.add("clicked");
 
-
+    if (traderMode.checked) {
+        stevenBradley.style.display = "block";
+    } else {
+        stevenBradley.style.display = "none";
+    }
+return
     let queryOptions = { active: true, lastFocusedWindow: true };
     // `tab` will either be a `tabs.Tab` instance or `undefined`.
     let [tab] = await chrome.tabs.query(queryOptions);
@@ -29,7 +36,6 @@ summaryButton.addEventListener('click', async function () {
     })
     const docsData = await docs.json().then(data => data.data);
     const docIDs = docsData.map(doc => doc.documentID);
-    console.log(docIDs);
 
     for (let i = 0; i < docIDs.length; i++) {
         await fetch(`https://api.voiceflow.com/v3alpha/knowledge-base/docs/${docIDs[i]}`, {
@@ -63,7 +69,6 @@ summaryButton.addEventListener('click', async function () {
         // Query Knowledge base
         let responseSize = document.getElementById("summary_length").value;
         if (responseSize === "short") {
-            console.log('success');
             responseSize = 1;
         } else if (responseSize === "meduim") {
             responseSize = 2;
@@ -95,6 +100,7 @@ const input = document.getElementById('text_input');
 submit.addEventListener('click', async () => {
     const question = input.value;
     input.value = "";
+return
     const query = await fetch(`https://general-runtime.voiceflow.com/knowledge-base/query`, {
         method: "POST",
         headers: {
