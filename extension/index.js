@@ -4,6 +4,7 @@ const afterClick = document.getElementById("after_click");
 const outputP = document.getElementById("output");
 const traderMode = document.getElementById("trader_mode");
 const stevenBradley = document.getElementById("steven_bradley");
+const APIKey = "";
 
 summariseAgainButton.addEventListener('click', async function () {
     summaryButton.classList.remove("clicked");
@@ -29,7 +30,7 @@ summaryButton.addEventListener('click', async function () {
     const docs = await fetch("https://api.voiceflow.com/v3alpha/knowledge-base/docs", {
         method: "GET",
         headers: {
-            "Authorization" : "VF.DM.6547779505b9a0000748a7bd.xk4EPGfGv7w8JVQl",
+            "Authorization" : APIKey,
             "Content-Type": "application/json",
         }
     })
@@ -40,7 +41,7 @@ summaryButton.addEventListener('click', async function () {
         await fetch(`https://api.voiceflow.com/v3alpha/knowledge-base/docs/${docIDs[i]}`, {
             method: "DELETE",
             headers: {
-                "Authorization" : "VF.DM.6547779505b9a0000748a7bd.xk4EPGfGv7w8JVQl",
+                "Authorization" : APIKey,
                 "Content-Type": "application/json",
             }
         });
@@ -50,7 +51,7 @@ summaryButton.addEventListener('click', async function () {
     await fetch(`https://api.voiceflow.com/v3alpha/knowledge-base/docs/upload`, {
         method: "POST",
         headers: {
-            "Authorization" : "VF.DM.6547779505b9a0000748a7bd.xk4EPGfGv7w8JVQl",
+            "Authorization" : APIKey,
             "Content-Type": "application/json",
         },
         body: JSON.stringify(
@@ -69,7 +70,7 @@ summaryButton.addEventListener('click', async function () {
             const query = await fetch(`https://general-runtime.voiceflow.com/knowledge-base/query`, {
                 method: "POST",
                 headers: {
-                    "Authorization": "VF.DM.6547779505b9a0000748a7bd.xk4EPGfGv7w8JVQl",
+                    "Authorization": APIKey,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(
@@ -100,7 +101,7 @@ summaryButton.addEventListener('click', async function () {
             const query = await fetch(`https://general-runtime.voiceflow.com/knowledge-base/query`, {
                 method: "POST",
                 headers: {
-                    "Authorization": "VF.DM.6547779505b9a0000748a7bd.xk4EPGfGv7w8JVQl",
+                    "Authorization": APIKey,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(
@@ -113,7 +114,7 @@ summaryButton.addEventListener('click', async function () {
             const queryData = await query.json();
             outputP.innerHTML = queryData.output ?? "I'm sorry, I don't understand. Please try again.";
         }
-    }, 3000)
+    }, 4000)
 })
 
 const submit = document.getElementById('submit');
