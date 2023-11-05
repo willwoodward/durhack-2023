@@ -85,7 +85,7 @@ summaryButton.addEventListener('click', async function () {
             )
         });
         const queryData = await query.json();
-        outputP.innerHTML = JSON.stringify(queryData.output).slice(1, -1);
+        outputP.innerHTML = queryData.output ?? "I'm sorry, I don't understand. Please try again.";
     }, 3000)
 })
 
@@ -109,5 +109,5 @@ submit.addEventListener('click', async () => {
         )
     });
     const queryData = await query.json();
-    outputP.innerHTML = JSON.stringify(queryData.output).slice(1, -1);
+    outputP.innerHTML = queryData.output ?? "I'm sorry, I don't understand. Please try again.";
 })
