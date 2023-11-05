@@ -1,10 +1,12 @@
 const summaryButton = document.getElementById('summarise');
 const summariseAgainButton = document.getElementById('summarise_again');
 const afterClick = document.getElementById("after_click");
+const outputP = document.getElementById("output");
 
 summariseAgainButton.addEventListener('click', async function () {
     summaryButton.classList.remove("clicked");
-    afterClick.classList.remove("clicked")
+    afterClick.classList.remove("clicked");
+    outputP.innerHTML = "";
 });
 
 summaryButton.addEventListener('click', async function () {
@@ -83,7 +85,7 @@ summaryButton.addEventListener('click', async function () {
             )
         });
         const queryData = await query.json();
-        document.getElementById("output").innerHTML = JSON.stringify(queryData.output);
+        outputP.innerHTML = JSON.stringify(queryData.output).slice(1, -1);
     }, 3000)
 })
 
@@ -107,5 +109,5 @@ submit.addEventListener('click', async () => {
         )
     });
     const queryData = await query.json();
-    document.getElementById("output").innerHTML = JSON.stringify(queryData.output);
+    outputP.innerHTML = JSON.stringify(queryData.output).slice(1, -1);
 })
