@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Infinity Extension",
-  "description": "We are everywhere",
+  "description": "Summarisation and query chrome extension using an LLM",
   "version": "1.0",
   "action": {
     "default_popup": "hello.html",
