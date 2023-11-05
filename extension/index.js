@@ -58,7 +58,16 @@ summaryButton.addEventListener('click', async function () {
     // });
 
     // Query Knowledge base
-    return
+    let responseSize = document.getElementById("summary_length").value;
+    if (responseSize === "short") {
+        console.log('success');
+        responseSize = 1;
+    } else if (responseSize === "meduim") {
+        responseSize = 2;
+    } else {
+        responseSize = 3;
+    }
+
     const query = await fetch(`https://general-runtime.voiceflow.com/knowledge-base/query`, {
         method: "POST",
         headers: {
@@ -67,7 +76,7 @@ summaryButton.addEventListener('click', async function () {
         },
         body: JSON.stringify(
             {
-                "question": "Summarise the text.",
+                "question": `Summarise the text in ${responseSize} short sentences.`,
                 "chunkLimit": 2
             }
         )
