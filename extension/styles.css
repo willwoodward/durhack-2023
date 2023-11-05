@@ -100,6 +100,7 @@ html{
   z-index: 99;
   width: 600px;
   height: 900px;
+  pointer-events: none;
 }
 
 #after_click {
