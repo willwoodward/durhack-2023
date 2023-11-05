@@ -13,7 +13,8 @@ body {
   background-size: 450px;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 15px;
+}
+html{
   border: 0.8px solid rgb(0, 0, 0);
   border-radius: 5px;
 }
@@ -89,7 +90,7 @@ body {
   margin: 0 auto;
   z-index: -1;
   border-radius: 10em;
-  transition: width 600ms, height 500ms;
+  transition: width 800ms, height 800ms;
 }
 
 #summarise.clicked::after {
