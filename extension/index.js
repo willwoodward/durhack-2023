@@ -8,7 +8,7 @@ const stevenBradley = document.getElementById("steven_bradley");
 summariseAgainButton.addEventListener('click', async function () {
     summaryButton.classList.remove("clicked");
     afterClick.classList.remove("clicked");
-    outputP.innerHTML = "";
+    outputP.innerHTML = "Loading...";
 });
 
 summaryButton.addEventListener('click', async function () {
@@ -22,7 +22,6 @@ summaryButton.addEventListener('click', async function () {
     }
 return
     let queryOptions = { active: true, lastFocusedWindow: true };
-    // `tab` will either be a `tabs.Tab` instance or `undefined`.
     let [tab] = await chrome.tabs.query(queryOptions);
     console.log(tab.url);
 
