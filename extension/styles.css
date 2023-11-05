@@ -66,6 +66,9 @@ html{
   justify-content: center;
   margin: 0 auto;
   user-select: none;
+  font: 1.2em;
+  font-family: 'Open Sans';
+  color: white;
 }
 
 #logo {
